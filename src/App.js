@@ -1,5 +1,10 @@
+import React from "react";
+import "./App.css";
+
+import ApplicationForm from "./containers/ApplicationForm";
+
 function App() {
-  return <div></div>;
+  return <ApplicationForm />;
 }
 
 export default App;
