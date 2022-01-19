@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
 
 function MakeApplicationPage() {
   return (
-    <body className={styles["application-form-container"]}>
+    <body className={styles["make-application-container"]}>
       <header>
         <Header />
       </header>
