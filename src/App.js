@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
 
-import ApplicationFormPage from "./pages/ApplicationFormPage";
+import MakeApplicationPage from "./pages/MakeApplicationPage";
 
 function App() {
-  return <ApplicationFormPage />;
+  return <MakeApplicationPage />;
 }
 
 export default App;

@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 
 import styles from "./styles.module.css";
 
-function ApplicationFormPage() {
+function MakeApplicationPage() {
   return (
     <body className={styles["application-form-container"]}>
       <header>
@@ -20,4 +20,4 @@ function ApplicationFormPage() {
   );
 }
 
-export default ApplicationFormPage;
+export default MakeApplicationPage;
