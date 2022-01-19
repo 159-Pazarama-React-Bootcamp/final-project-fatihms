@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { useFormik } from "formik";
+import axios from "axios";
 
 import styles from "./styles.module.css";
 
 import validationSchema from "./validations";
+import API from "../../config/api";
 
 function ApplicationForm() {
+  async function postData(applicationData) {
+    try {
+      const result = await axios.post(API, applicationData);
+      console.log(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -19,6 +31,7 @@ function ApplicationForm() {
       other: "",
     },
     onSubmit: (values) => {
+      postData(values);
       alert(JSON.stringify(values, null, 2));
     },
     validationSchema,
