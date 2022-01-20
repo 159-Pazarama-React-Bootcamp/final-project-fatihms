@@ -6,11 +6,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MakeApplicationPage from "./pages/MakeApplicationPage";
 import ApplicationSuccessfulPage from "./pages/ApplicationSuccessfulPage";
 import ApplicationStatusPage from "./pages/ApplicationStatusPage";
+import UserApplicationPage from "./pages/UserApplicationPage";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 
 import AdminLoginPage from "./pages/AdminLoginPage";
 import ReferralListPage from "./pages/ReferralListPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -24,8 +26,11 @@ function App() {
           element={<ApplicationSuccessfulPage />}
         />
         <Route path="basvuru-sorgula" element={<ApplicationStatusPage />} />
+        <Route path="basvuru/:id" element={<UserApplicationPage />} />
         <Route path="admin" element={<AdminLoginPage />} />
-        <Route path="admin/basvuru-listesi" element={<ReferralListPage />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="admin/basvuru-listesi" element={<ReferralListPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
