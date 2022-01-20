@@ -6,17 +6,11 @@
   align-items: center;
 }
 
-.form-container {
-  padding: 40px;
-  width: 55%;
-  border-radius: 4px;
+.af-form {
   gap: 50px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: white;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .form-container-left {

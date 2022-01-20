@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useFormik } from "formik";
 import axios from "axios";
 
 import styles from "./styles.module.css";
+
+import FormContainer from "../../components/FormContainer";
 
 import validationSchema from "./validations";
 import API from "../../config/api";
@@ -22,7 +24,7 @@ function ApplicationForm() {
     initialValues: {
       firstName: "",
       lastName: "",
-      age: 0,
+      age: "",
       tc: "",
       reason: "",
       address: "",
@@ -38,113 +40,132 @@ function ApplicationForm() {
   });
   return (
     <section className={styles["application-form"]}>
-      <form className={styles["form-container"]} onSubmit={formik.handleSubmit}>
-        <div className={styles["form-container-left"]}>
-          <h4 className={styles.oneRow}>Kişisel</h4>
-          <div className={styles["input-container"]}>
-            <input
-              id="firstName"
-              name="firstName"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.firstName}
-            />
-            <label htmlFor="firstName">Ad</label>
-          </div>
-          <div className={styles["input-container"]}>
-            <input
-              id="lastName"
-              name="lastName"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.lastName}
-            />
-            <label htmlFor="lastName">Soyad</label>
-          </div>
+      <FormContainer width="55">
+        <form className={styles["af-form"]} onSubmit={formik.handleSubmit}>
+          <div className={styles["form-container-left"]}>
+            <h4 className={styles.oneRow}>Kişisel</h4>
+            <div className={styles["input-container"]}>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                placeholder="Fatih Mustafa"
+                onChange={formik.handleChange}
+                value={formik.values.firstName}
+              />
+              <label htmlFor="firstName">Ad</label>
+            </div>
+            <div className={styles["input-container"]}>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                placeholder="Sağır"
+                onChange={formik.handleChange}
+                value={formik.values.lastName}
+              />
+              <label htmlFor="lastName">Soyad</label>
+            </div>
 
-          <div className={styles["input-container"]}>
-            <input
-              id="age"
-              name="age"
-              type="number"
-              onChange={formik.handleChange}
-              value={formik.values.age}
-            />
-            <label htmlFor="age">Doğum yılı</label>
-          </div>
+            <div className={styles["input-container"]}>
+              <input
+                id="age"
+                name="age"
+                type="number"
+                placeholder="25"
+                min={0}
+                onChange={formik.handleChange}
+                value={formik.values.age}
+              />
+              <label htmlFor="age">Doğum yılı</label>
+            </div>
 
-          <div className={[styles["input-container"], styles.oneRow].join(" ")}>
-            <input
-              id="tc"
-              name="tc"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.tc}
-            />
-            <label htmlFor="tc">TC</label>
-          </div>
+            <div
+              className={[styles["input-container"], styles.oneRow].join(" ")}
+            >
+              <input
+                id="tc"
+                name="tc"
+                type="text"
+                placeholder="25215151515"
+                maxLength={11}
+                onChange={formik.handleChange}
+                value={formik.values.tc}
+              />
+              <label htmlFor="tc">TC</label>
+            </div>
 
-          <h4 className={styles.oneRow}>İletişim</h4>
-          <div className={[styles["input-container"], styles.oneRow].join(" ")}>
-            <input
-              id="address"
-              name="address"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.address}
-            />
-            <label htmlFor="address">Adres</label>
-          </div>
+            <h4 className={styles.oneRow}>İletişim</h4>
+            <div
+              className={[styles["input-container"], styles.oneRow].join(" ")}
+            >
+              <input
+                id="address"
+                name="address"
+                type="text"
+                placeholder="Yeşil sok. No:1 / 34"
+                onChange={formik.handleChange}
+                value={formik.values.address}
+              />
+              <label htmlFor="address">Adres</label>
+            </div>
 
-          <div className={styles["input-container"]}>
-            <input
-              id="city"
-              name="city"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.city}
-            />
-            <label htmlFor="city">İl</label>
-          </div>
+            <div className={styles["input-container"]}>
+              <input
+                id="city"
+                name="city"
+                type="text"
+                placeholder="İstanbul"
+                onChange={formik.handleChange}
+                value={formik.values.city}
+              />
+              <label htmlFor="city">İl</label>
+            </div>
 
-          <div className={styles["input-container"]}>
-            <input
-              id="district"
-              name="district"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.district}
-            />
-            <label htmlFor="district">İlçe</label>
+            <div className={styles["input-container"]}>
+              <input
+                id="district"
+                name="district"
+                type="text"
+                placeholder="Beşiktaş"
+                onChange={formik.handleChange}
+                value={formik.values.district}
+              />
+              <label htmlFor="district">İlçe</label>
+            </div>
           </div>
-        </div>
-        <span className={styles["form-container-hr"]} />
-        <div className={styles["form-container-right"]}>
-          <h4 className={styles.oneRow}>Başvuru</h4>
-          <div className={[styles["input-container"], styles.oneRow].join(" ")}>
-            <input
-              id="reason"
-              name="reason"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.reason}
-            />
-            <label htmlFor="reason">Başvuru Nedeni</label>
-          </div>
+          <span className={styles["form-container-hr"]} />
+          <div className={styles["form-container-right"]}>
+            <h4 className={styles.oneRow}>Başvuru</h4>
+            <div
+              className={[styles["input-container"], styles.oneRow].join(" ")}
+            >
+              <input
+                id="reason"
+                name="reason"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.reason}
+              />
+              <label htmlFor="reason">Başvuru Nedeni</label>
+            </div>
 
-          <div className={[styles["input-container"], styles.oneRow].join(" ")}>
-            <input
-              id="other"
-              name="other"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.other}
-            />
-            <label htmlFor="other">Ek</label>
+            <div
+              className={[styles["input-container"], styles.oneRow].join(" ")}
+            >
+              <input
+                id="other"
+                name="other"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.other}
+              />
+              <label htmlFor="other">Ek</label>
+            </div>
+            <button type="submit">Gönder</button>
           </div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+        </form>
+      </FormContainer>
     </section>
   );
 }
