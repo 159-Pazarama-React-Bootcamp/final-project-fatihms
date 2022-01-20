@@ -21,5 +21,5 @@ export default FormContainer;
 
 FormContainer.propTypes = {
   children: PropTypes.element.isRequired,
-  width: PropTypes.element.isRequired,
+  width: PropTypes.string.isRequired,
 };

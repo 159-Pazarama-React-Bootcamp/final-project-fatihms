@@ -8,7 +8,8 @@ import ApplicationSuccessfulPage from "./pages/ApplicationSuccessfulPage";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 
-import AdminPage from "./pages/AdminPage";
+import AdminLoginPage from "./pages/AdminLoginPage";
+import ReferralListPage from "./pages/ReferralListPage";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           path="basvuru-basarili"
           element={<ApplicationSuccessfulPage />}
         />
-        <Route path="admin" element={<AdminPage />} />
+        <Route path="admin" element={<AdminLoginPage />} />
+        <Route path="admin/basvuru-listesi" element={<ReferralListPage />} />
       </Routes>
     </BrowserRouter>
   );

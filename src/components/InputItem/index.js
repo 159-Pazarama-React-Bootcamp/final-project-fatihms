@@ -24,11 +24,11 @@ function InputItem(props) {
 export default InputItem;
 
 InputItem.propTypes = {
-  id: PropTypes.element.isRequired,
-  name: PropTypes.element.isRequired,
-  type: PropTypes.element.isRequired,
-  placeholder: PropTypes.element.isRequired,
-  onChange: PropTypes.element.isRequired,
-  value: PropTypes.element.isRequired,
-  labelText: PropTypes.element.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
 };

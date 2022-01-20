@@ -6,6 +6,7 @@ import axios from "axios";
 import styles from "./styles.module.css";
 
 import FormContainer from "../../components/FormContainer";
+import ButtonItem from "../../components/ButtonItem";
 
 import validationSchema from "./validations";
 import API from "../../config/api";
@@ -162,7 +163,7 @@ function ApplicationForm() {
               />
               <label htmlFor="other">Ek</label>
             </div>
-            <button type="submit">Gönder</button>
+            <ButtonItem type="submit">Gönder</ButtonItem>
           </div>
         </form>
       </FormContainer>
