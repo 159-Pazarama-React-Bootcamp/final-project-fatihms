@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MakeApplicationPage from "./pages/MakeApplicationPage";
 import ApplicationSuccessfulPage from "./pages/ApplicationSuccessfulPage";
+import ApplicationStatusPage from "./pages/ApplicationStatusPage";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 
@@ -22,6 +23,7 @@ function App() {
           path="basvuru-basarili"
           element={<ApplicationSuccessfulPage />}
         />
+        <Route path="basvuru-sorgula" element={<ApplicationStatusPage />} />
         <Route path="admin" element={<AdminLoginPage />} />
         <Route path="admin/basvuru-listesi" element={<ReferralListPage />} />
       </Routes>
