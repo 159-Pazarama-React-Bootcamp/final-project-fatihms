@@ -17,7 +17,7 @@ function AdminLogin() {
       password: "",
     },
     onSubmit: (values) => {
-      console.log("here");
+      localStorage.setItem("isAuthenticated", true);
       if (values.username === "admin" && values.password === "admin") {
         window.location.href = "/admin/basvuru-listesi";
       }

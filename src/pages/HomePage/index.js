@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 
 function HomePage() {
   return (
-    <body className={styles.homepage}>
+    <div className={styles.homepage}>
       <main>
         <Link to="/basvuru-olustur" className={styles["homepage-link"]}>
           <button type="button">Başvuru Oluştur</button>
@@ -15,7 +15,7 @@ function HomePage() {
           <button type="button">Başvuru Sorgula</button>
         </Link>
       </main>
-    </body>
+    </div>
   );
 }
 

@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
 
 function ApplicationStatusPage() {
   return (
-    <body className={styles["application-status-container"]}>
+    <div className={styles["application-status-container"]}>
       <header>
         <Header />
       </header>
@@ -16,7 +16,7 @@ function ApplicationStatusPage() {
           <ApplicationStatusForm />
         </article>
       </main>
-    </body>
+    </div>
   );
 }
 

@@ -1,0 +1,89 @@
+.referral-list {
+  width: 100%;
+  height: 90vh;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #4a647c;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-weight: bold;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: white;
+}
+
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #ddd;
+}
+
+.table td {
+  text-align: left;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 16px 32px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  color: #4a647c;
+  background-color: #fff;
+}
+
+.pagination button:hover {
+  background-color: #4a647c;
+  color: white;
+}
+
+.pagination select {
+  padding: 16px 32px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  color: #4a647c;
+  background-color: #fff;
+}
+
+.pagination select:hover {
+  background-color: #4a647c;
+  color: white;
+}
+
+.pagination span {
+  padding: 16px 32px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  color: #4a647c;
+  background-color: #fff;
+}
+
+.pagination input {
+  padding: 6px 12px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  color: #4a647c;
+  background-color: #fff;
+}

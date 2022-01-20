@@ -7,7 +7,7 @@ import Result from "../../containers/Result";
 
 function ApplicationSuccessfulPage() {
   return (
-    <body className={styles["application-form-container"]}>
+    <div className={styles["application-form-container"]}>
       <header>
         <Header />
       </header>
@@ -16,7 +16,7 @@ function ApplicationSuccessfulPage() {
           <Result />
         </article>
       </main>
-    </body>
+    </div>
   );
 }
 
