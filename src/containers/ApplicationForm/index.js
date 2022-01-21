@@ -2,6 +2,7 @@ import React from "react";
 
 import { useFormik } from "formik";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./styles.module.css";
 
@@ -12,9 +13,16 @@ import validationSchema from "./validations";
 import API from "../../config/api";
 
 function ApplicationForm() {
+  const navigate = useNavigate();
+
+  const randomCode = Math.random().toString(36).substring(3);
+
   async function postData(applicationData) {
     try {
-      const result = await axios.post(API, applicationData);
+      const result = await axios.post(API, {
+        ...applicationData,
+        applicationCode: randomCode,
+      });
       console.log(result.data);
     } catch (error) {
       console.error(error);
@@ -35,7 +43,9 @@ function ApplicationForm() {
     },
     onSubmit: (values) => {
       postData(values);
-      alert(JSON.stringify(values, null, 2));
+      navigate("/basvuru-basarili", {
+        state: { ...values, dateRegistration: new Date(), code: randomCode },
+      });
     },
     validationSchema,
   });
