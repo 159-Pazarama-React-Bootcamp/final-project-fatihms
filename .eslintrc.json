@@ -16,6 +16,7 @@
     "quotes": ["off", "double"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "object-curly-newline": "off",
+    "comma-dangle": "off",
     "jsx-a11y/label-has-associated-control": [
       "error",
       {

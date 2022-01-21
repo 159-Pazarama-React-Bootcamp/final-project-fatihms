@@ -20,7 +20,7 @@ function ApplicationStatusForm() {
       code: "",
     },
     onSubmit: (values) => {
-      navigate(`/basvuru/${values.code}`);
+      navigate(`/basvuru/${values.code}`, { replace: true });
     },
     validationSchema,
   });

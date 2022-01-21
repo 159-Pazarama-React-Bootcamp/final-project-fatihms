@@ -1,6 +1,7 @@
 import React from "react";
 
 import Header from "../../components/Header";
+import ApplicationInfo from "../../containers/ApplicationInfo";
 
 import styles from "./styles.module.css";
 
@@ -11,7 +12,9 @@ function UserApplicationPage() {
         <Header />
       </header>
       <main>
-        <article>Z</article>
+        <article>
+          <ApplicationInfo />
+        </article>
       </main>
     </div>
   );

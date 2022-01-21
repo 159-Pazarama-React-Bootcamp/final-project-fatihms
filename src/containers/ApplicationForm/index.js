@@ -43,9 +43,13 @@ function ApplicationForm() {
     },
     onSubmit: (values) => {
       postData(values);
-      navigate("/basvuru-basarili", {
-        state: { ...values, dateRegistration: new Date(), code: randomCode },
-      });
+      navigate(
+        "/basvuru-basarili",
+        {
+          state: { ...values, dateRegistration: new Date(), code: randomCode },
+        },
+        { replace: true }
+      );
     },
     validationSchema,
   });
