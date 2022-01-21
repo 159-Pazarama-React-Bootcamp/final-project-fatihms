@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { useLocation } from "react-router-dom";
+
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import FormContainer from "../../components/FormContainer";
 
 import styles from "./styles.module.css";
 
 function Result() {
+  const [copiedText, setCopiedText] = useState("");
+
   const location = useLocation();
+
+  useEffect(() => {
+    const { state } = location;
+    if (state) {
+      setCopiedText(state.code);
+    }
+  }, [location]);
 
   return (
     <section className={styles.result}>
@@ -15,7 +26,7 @@ function Result() {
         <div className={styles["result-container"]}>
           <img
             src="https://cdn.pixabay.com/photo/2021/05/05/05/10/pixel-cells-6230200_960_720.png"
-            alt=""
+            alt="başarı-görseli"
             height={200}
           />
           <h2>Teşekkürler</h2>
@@ -26,7 +37,9 @@ function Result() {
             &nbsp; başvurunuzu kontrol edebilirsiniz.
           </p>
           <div className={styles["rc-application-code"]}>
-            <h2>{location.state.code}</h2>
+            <CopyToClipboard text={copiedText}>
+              <h2 style={{ cursor: "pointer" }}>{location.state.code}</h2>
+            </CopyToClipboard>
           </div>
           <div className={styles["rc-detail"]}>
             <h3>Başvuru Detayı</h3>
