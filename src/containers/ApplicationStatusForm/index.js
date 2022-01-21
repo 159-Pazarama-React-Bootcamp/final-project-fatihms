@@ -2,6 +2,8 @@ import React from "react";
 
 import { useFormik } from "formik";
 
+import { useNavigate } from "react-router-dom";
+
 import FormContainer from "../../components/FormContainer";
 import ButtonItem from "../../components/ButtonItem";
 import InputItem from "../../components/InputItem";
@@ -11,12 +13,14 @@ import validationSchema from "./validations";
 import styles from "./styles.module.css";
 
 function ApplicationStatusForm() {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       code: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      navigate(`/basvuru/${values.code}`);
     },
     validationSchema,
   });

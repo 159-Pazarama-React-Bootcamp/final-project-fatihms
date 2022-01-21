@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 import styles from "./styles.module.css";
 
 function HomePage() {
-  const countValue = useSelector((state) => state.counter.value);
-  console.log(countValue);
+  const codeValue = useSelector((state) => state.code.value);
+  console.log(codeValue);
 
   return (
     <div className={styles.homepage}>
