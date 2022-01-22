@@ -4,14 +4,18 @@ import { useLocation } from "react-router-dom";
 
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
+// import { useSelector } from "react-redux";
+
 import FormContainer from "../../components/FormContainer";
 
 import styles from "./styles.module.css";
 
 function Result() {
   const [copiedText, setCopiedText] = useState("");
+  // const [userData, setUserData] = useState({});
 
   const location = useLocation();
+  // const userDataState = useSelector((state) => state.userData);
 
   useEffect(() => {
     const { state } = location;
@@ -38,7 +42,7 @@ function Result() {
           </p>
           <div className={styles["rc-application-code"]}>
             <CopyToClipboard text={copiedText}>
-              <h2 style={{ cursor: "pointer" }}>{location.state.code}</h2>
+              <h2 style={{ cursor: "pointer" }}>{location.state?.code}</h2>
             </CopyToClipboard>
           </div>
           <div className={styles["rc-detail"]}>
@@ -47,44 +51,46 @@ function Result() {
               <table>
                 <tr>
                   <td>Başvuru Kodu</td>
-                  <td>{location.state.code}</td>
+                  <td>{location.state?.code}</td>
                 </tr>
                 <tr>
                   <td>Başvuru Tarihi</td>
                   <td>
-                    {`${location.state.dateRegistration.getDate()}/${
-                      location.state.dateRegistration.getMonth() + 1
-                    }/${location.state.dateRegistration.getFullYear()}
-                      `}
+                    {
+                      /* eslint no-unsafe-optional-chaining: "error" */
+
+                      `${location.state?.dateRegistration.getDate()}/${
+                        location.state?.dateRegistration.getMonth() + 1
+                      }/${location.state?.dateRegistration.getFullYear()}
+                      `
+                    }
                   </td>
                 </tr>
                 <tr>
                   <td>Başvuru Yapan Kişi</td>
-                  <td>
-                    {`${location.state.firstName} ${location.state.lastName}`}
-                  </td>
+                  <td>{`${location.state?.firstName} ${location.state?.lastName}`}</td>
                 </tr>
                 <tr>
                   <td>TC</td>
-                  <td>{location.state.tc}</td>
+                  <td>{location.state?.tc}</td>
                 </tr>
                 <tr>
                   <td>Doğum Tarihi</td>
-                  <td>{location.state.age}</td>
+                  <td>{location.state?.age}</td>
                 </tr>
                 <tr>
                   <td>Adres</td>
                   <td>
-                    {`${location.state.address} ${location.state.city} ${location.state.district}`}
+                    {`${location.state?.address} ${location.state?.city} ${location.state?.district}`}
                   </td>
                 </tr>
                 <tr>
                   <td>Başvuru Sebebi</td>
-                  <td>{location.state.reason}</td>
+                  <td>{location.state?.reason}</td>
                 </tr>
                 <tr>
                   <td>Diğer</td>
-                  <td>{location.state.other}</td>
+                  <td>{location.state?.other}</td>
                 </tr>
               </table>
             </div>

@@ -4,6 +4,10 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+
+import { addData } from "../../redux/UserData/userDataSlice";
+
 import styles from "./styles.module.css";
 
 import FormContainer from "../../components/FormContainer";
@@ -14,6 +18,7 @@ import API from "../../config/api";
 
 function ApplicationForm() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const randomCode = Math.random().toString(36).substring(3);
 
@@ -42,6 +47,7 @@ function ApplicationForm() {
       other: "",
     },
     onSubmit: (values) => {
+      dispatch(addData(values));
       postData(values);
       navigate(
         "/basvuru-basarili",

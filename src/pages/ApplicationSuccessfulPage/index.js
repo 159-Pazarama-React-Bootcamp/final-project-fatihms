@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { AiOutlineSearch } from "react-icons/ai";
 
 import styles from "./styles.module.css";
 
@@ -9,7 +12,14 @@ function ApplicationSuccessfulPage() {
   return (
     <div className={styles["application-form-container"]}>
       <header>
-        <Header />
+        <Header title="Sonuç">
+          <Link to="/basvuru-sorgula" className={styles["afc-link"]}>
+            <h3>Başvuru Sorgula</h3>
+            <i>
+              <AiOutlineSearch size={30} />
+            </i>
+          </Link>
+        </Header>
       </header>
       <main>
         <article>

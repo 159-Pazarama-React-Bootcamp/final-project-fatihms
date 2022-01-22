@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="*" element={<NotFound />} />
-        <Route path="404" element={<NotFound />} />
+        <Route path="notfound" element={<NotFound />} />
         <Route path="/" element={<HomePage />} />
         <Route path="basvuru-olustur" element={<MakeApplicationPage />} />
         <Route

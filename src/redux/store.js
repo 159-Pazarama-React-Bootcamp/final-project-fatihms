@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import codeReducer from "./code/codeSlice";
+import userDataReducer from "./UserData/userDataSlice";
 
 const store = configureStore({
-  reducer: { code: codeReducer },
+  reducer: { userData: userDataReducer },
 });
 
 export default store;

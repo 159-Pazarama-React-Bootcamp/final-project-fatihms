@@ -2,14 +2,9 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { useSelector } from "react-redux";
-
 import styles from "./styles.module.css";
 
 function HomePage() {
-  const codeValue = useSelector((state) => state.code.value);
-  console.log(codeValue);
-
   return (
     <div className={styles.homepage}>
       <main>

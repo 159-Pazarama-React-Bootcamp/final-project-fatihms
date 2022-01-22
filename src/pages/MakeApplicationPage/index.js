@@ -25,7 +25,10 @@ function MakeApplicationPage() {
         <article>
           <ApplicationForm />
         </article>
-        <p>asdas</p>
+        <p>
+          Eğer bir sorun yaşarsanız, lütfen&nbsp;
+          <Link to="/iletisim">bize ulaşın.</Link>
+        </p>
       </main>
     </div>
   );
