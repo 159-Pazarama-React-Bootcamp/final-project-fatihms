@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
 import API from "../../config/api";
@@ -111,6 +113,8 @@ function Table({ columns, data }) {
 }
 
 function ReferralList() {
+  const navigate = useNavigate();
+
   const columns = React.useMemo(() => [
     {
       Header: "Name",
@@ -163,7 +167,13 @@ function ReferralList() {
   }, []);
 
   const handleEdit = (row) => {
-    console.log(row);
+    navigate(
+      `/admin/basvuru/${row.applicationCode}`,
+      {
+        state: { row },
+      },
+      { replace: true }
+    );
   };
 
   return (

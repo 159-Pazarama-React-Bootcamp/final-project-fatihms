@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 
 import AdminLoginPage from "./pages/AdminLoginPage";
 import ReferralListPage from "./pages/ReferralListPage";
+import AdminApplicationPage from "./pages/AdminApplicationPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="admin" element={<AdminLoginPage />} />
         <Route element={<ProtectedRoute />}>
           <Route path="admin/basvuru-listesi" element={<ReferralListPage />} />
+          <Route path="admin/basvuru/:id" element={<AdminApplicationPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

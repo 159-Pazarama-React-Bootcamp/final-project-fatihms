@@ -1,0 +1,21 @@
+.admin-application-form {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aaf-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.aaf-table > table > tbody > tr > td {
+  padding: 10px;
+}
+.aaf-table > table > tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}

@@ -1,6 +1,4 @@
 .application-form {
-  width: 100%;
-  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +42,6 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  width: 100%;
 }
 
 .input-container > input {
@@ -81,7 +78,6 @@
   font-weight: bold;
   height: 40px;
   margin-top: 10px;
-  width: 100%;
   grid-column: auto / span 2;
   cursor: pointer;
 }

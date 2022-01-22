@@ -159,6 +159,7 @@ function ApplicationForm() {
                 id="reason"
                 name="reason"
                 type="text"
+                placeholder="Soru"
                 onChange={formik.handleChange}
                 value={formik.values.reason}
               />
