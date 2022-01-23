@@ -4,9 +4,9 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
-import { addData } from "../../redux/UserData/userDataSlice";
+// import { addData } from "../../redux/UserData/userDataSlice";
 
 import styles from "./styles.module.css";
 
@@ -18,7 +18,7 @@ import API from "../../config/api";
 
 function ApplicationForm() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const randomCode = Math.random().toString(36).substring(3);
 
@@ -47,7 +47,7 @@ function ApplicationForm() {
       other: "",
     },
     onSubmit: (values) => {
-      dispatch(addData(values));
+      // dispatch(addData(values));
       postData(values);
       navigate(
         "/basvuru-basarili",
@@ -98,7 +98,7 @@ function ApplicationForm() {
                 onChange={formik.handleChange}
                 value={formik.values.age}
               />
-              <label htmlFor="age">Doğum yılı</label>
+              <label htmlFor="age">Yaş</label>
             </div>
 
             <div
@@ -165,7 +165,7 @@ function ApplicationForm() {
                 id="reason"
                 name="reason"
                 type="text"
-                placeholder="Soru"
+                placeholder="Sorun"
                 onChange={formik.handleChange}
                 value={formik.values.reason}
               />

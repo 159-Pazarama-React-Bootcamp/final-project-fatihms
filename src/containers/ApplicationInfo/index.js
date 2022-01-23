@@ -15,16 +15,14 @@ function ApplicationInfo() {
   const [foundApplication, setFoundApplication] = useState({});
   const [loading, setLoading] = useState(false);
 
-  console.log(loading, foundApplication);
-
   const code = useLocation().pathname.split("/")[2];
-  console.log(code);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
         const { data: response } = await axios.get(API);
+        console.log("***");
         setApplications(response);
       } catch (error) {
         console.error(error.message);
@@ -35,6 +33,8 @@ function ApplicationInfo() {
     fetchData();
   }, []);
 
+  console.log(loading);
+
   /*eslint-disable */
   useEffect(() => {
     console.log("---");
@@ -43,7 +43,7 @@ function ApplicationInfo() {
         setFoundApplication(application);
       }
     });
-  }, [applications]);
+  }, [loading]);
 
   /* eslint-enable */
 
@@ -52,47 +52,53 @@ function ApplicationInfo() {
   return (
     <section className={styles["application-info"]}>
       <FormContainer width="40">
-        <h2>Başvuru Bilgisi</h2>
-        <div className={styles["ai-table"]}>
-          <table>
-            <tr>
-              <td>Başvuru Kodu</td>
-              <td>{foundApplication.applicationCode}</td>
-            </tr>
-            <tr>
-              <td>Başvuru Tarihi</td>
-              <td>ss</td>
-            </tr>
-            <tr>
-              <td>Başvuru Yapan Kişi</td>
-              <td>
-                {`${foundApplication.firstName} ${foundApplication.lastName}`}
-              </td>
-            </tr>
-            <tr>
-              <td>TC</td>
-              <td>{foundApplication.tc}</td>
-            </tr>
-            <tr>
-              <td>Doğum Tarihi</td>
-              <td>{foundApplication.age}</td>
-            </tr>
-            <tr>
-              <td>Adres</td>
-              <td>
-                {`${foundApplication.address} ${foundApplication.city} ${foundApplication.district}`}
-              </td>
-            </tr>
-            <tr>
-              <td>Başvuru Sebebi</td>
-              <td>{foundApplication.reason}</td>
-            </tr>
-            <tr>
-              <td>Diğer</td>
-              <td>{foundApplication.other}</td>
-            </tr>
-          </table>
-        </div>
+        {loading ? (
+          <p> Yükleniyor... </p>
+        ) : (
+          <>
+            <h2>Başvuru Bilgisi</h2>
+            <div className={styles["ai-table"]}>
+              <table>
+                <tr>
+                  <td>Başvuru Kodu</td>
+                  <td>{foundApplication?.applicationCode}</td>
+                </tr>
+                <tr>
+                  <td>Başvuru Tarihi</td>
+                  <td>ss</td>
+                </tr>
+                <tr>
+                  <td>Başvuru Yapan Kişi</td>
+                  <td>
+                    {`${foundApplication?.firstName} ${foundApplication?.lastName}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>TC</td>
+                  <td>{foundApplication?.tc}</td>
+                </tr>
+                <tr>
+                  <td>Doğum Tarihi</td>
+                  <td>{foundApplication?.age}</td>
+                </tr>
+                <tr>
+                  <td>Adres</td>
+                  <td>
+                    {`${foundApplication?.address} ${foundApplication?.city} ${foundApplication?.district}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Başvuru Sebebi</td>
+                  <td>{foundApplication?.reason}</td>
+                </tr>
+                <tr>
+                  <td>Diğer</td>
+                  <td>{foundApplication?.other}</td>
+                </tr>
+              </table>
+            </div>
+          </>
+        )}
       </FormContainer>
     </section>
   );
