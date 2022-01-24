@@ -10,8 +10,9 @@
   width: 100%;
   grid-column: auto / span 2;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .button-item:hover {
-  background-color: #152d35;
+  background-color: #273f47;
 }

@@ -8,6 +8,7 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 
 import Header from "../../components/Header";
 import ApplicationInfo from "../../containers/ApplicationInfo";
+import Loading from "../../components/Loading";
 
 import styles from "./styles.module.css";
 
@@ -22,12 +23,22 @@ function UserApplicationPage() {
     dispatch(fetchApplications());
   }, [dispatch]);
 
+  const loading = useSelector((state) => state.applicationData.loading);
+
   /*eslint-disable */
   const foundApplication = useSelector((state) =>
     state.applicationData.applications.find(
       (application) => application.applicationCode === code
     )
   );
+
+  if (loading) {
+    return (
+      <div className={styles.loading}>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <>
