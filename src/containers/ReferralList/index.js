@@ -166,6 +166,8 @@ function ReferralList() {
     setData(result.data);
   }, []);
 
+  console.log(data);
+
   const handleEdit = (row) => {
     navigate(
       `/admin/basvuru/${row.applicationCode}`,

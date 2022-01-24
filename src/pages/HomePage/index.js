@@ -10,6 +10,7 @@ import styles from "./styles.module.css";
 function HomePage() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.applicationData);
+  console.log(data);
 
   useEffect(() => {
     dispatch(fetchApplications());
