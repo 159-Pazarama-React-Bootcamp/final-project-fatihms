@@ -89,3 +89,47 @@
 .oneRow {
   grid-column: auto / span 2;
 }
+
+@media (max-width: 768px) {
+  .form-container-left {
+    grid-template-columns: repeat(2, [col] 125px);
+  }
+
+  .form-container-right {
+    grid-template-columns: repeat(2, [col] 125px);
+  }
+}
+
+@media (max-width: 600px) {
+  .af-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-container-hr {
+    display: none;
+  }
+  .form-container-left {
+    grid-template-columns: repeat(2, [col] 200px);
+  }
+
+  .form-container-right {
+    grid-template-columns: repeat(2, [col] 200px);
+  }
+}
+
+@media (max-width: 520px) {
+  .af-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-container-hr {
+    display: none;
+  }
+  .form-container-left {
+    grid-template-columns: repeat(2, [col] 125px);
+  }
+
+  .form-container-right {
+    grid-template-columns: repeat(2, [col] 125px);
+  }
+}

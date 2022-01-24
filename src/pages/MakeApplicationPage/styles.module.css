@@ -31,3 +31,10 @@
   color: #112031;
   margin-top: 10px;
 }
+
+@media (max-width: 520px) {
+  .make-application-container > main {
+    height: auto;
+    margin-top: 22px;
+  }
+}
