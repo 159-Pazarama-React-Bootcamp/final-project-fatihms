@@ -9,7 +9,7 @@ function ApplicationStatusPage() {
   return (
     <div className={styles["application-status-container"]}>
       <header>
-        <Header />
+        <Header title="Başvuru Sorgula" />
       </header>
       <main>
         <article>
