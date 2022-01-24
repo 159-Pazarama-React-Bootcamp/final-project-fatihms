@@ -10,3 +10,18 @@
   font-weight: bold;
   color: darkred;
 }
+
+.mac-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f05454;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.mac-link > i {
+  margin-left: 10px;
+}

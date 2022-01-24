@@ -13,9 +13,13 @@
   margin-top: 10px;
 }
 
-.ai-table > table > tr > td {
+.ai-table > table > tbody > tr > td:nth-child(1) {
+  font-weight: 500;
+}
+
+.ai-table > table > tbody > tr > td {
   padding: 10px;
 }
-.ai-table > table > tr:nth-child(odd) {
+.ai-table > table > tbody > tr:nth-child(odd) {
   background-color: #f2f2f2;
 }

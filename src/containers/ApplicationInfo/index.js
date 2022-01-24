@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import styles from "./styles.module.css";
 
 import FormContainer from "../../components/FormContainer";
+import TableItem from "../../components/TableItem";
 
 function ApplicationInfo({ foundApplication }) {
   return (
@@ -13,42 +14,28 @@ function ApplicationInfo({ foundApplication }) {
         <h2>Başvuru Bilgisi</h2>
         <div className={styles["ai-table"]}>
           <table>
-            <tr>
-              <td>Başvuru Kodu</td>
-              <td>{foundApplication?.applicationCode}</td>
-            </tr>
-            <tr>
-              <td>Başvuru Tarihi</td>
-              <td>ss</td>
-            </tr>
-            <tr>
-              <td>Başvuru Yapan Kişi</td>
-              <td>
-                {`${foundApplication?.firstName} ${foundApplication?.lastName}`}
-              </td>
-            </tr>
-            <tr>
-              <td>TC</td>
-              <td>{foundApplication?.tc}</td>
-            </tr>
-            <tr>
-              <td>Doğum Tarihi</td>
-              <td>{foundApplication?.age}</td>
-            </tr>
-            <tr>
-              <td>Adres</td>
-              <td>
-                {`${foundApplication?.address} ${foundApplication?.city} ${foundApplication?.district}`}
-              </td>
-            </tr>
-            <tr>
-              <td>Başvuru Sebebi</td>
-              <td>{foundApplication?.reason}</td>
-            </tr>
-            <tr>
-              <td>Diğer</td>
-              <td>{foundApplication?.other}</td>
-            </tr>
+            <tbody>
+              <TableItem
+                label="Başvuru Kodu"
+                value={foundApplication.applicationCode}
+              />
+              <TableItem label="Başvuru Tarihi" value="tarih" />
+              <TableItem
+                label="Başvuru Yapan Kişi"
+                value={`${foundApplication?.firstName} ${foundApplication?.lastName}`}
+              />
+              <TableItem label="TC" value={foundApplication?.tc} />
+              <TableItem label="Doğum Tarihi" value={foundApplication?.age} />
+              <TableItem
+                label="Adres"
+                value={`${foundApplication?.address} ${foundApplication?.city} ${foundApplication?.district}`}
+              />
+              <TableItem
+                label="Başvuru Sebebi"
+                value={foundApplication?.reason}
+              />
+              <TableItem label="Diğer" value={foundApplication?.other} />
+            </tbody>
           </table>
         </div>
       </FormContainer>

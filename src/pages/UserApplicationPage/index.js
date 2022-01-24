@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
+
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 import Header from "../../components/Header";
 import ApplicationInfo from "../../containers/ApplicationInfo";
@@ -32,7 +34,14 @@ function UserApplicationPage() {
       {foundApplication ? (
         <div className={styles["user-application-page"]}>
           <header>
-            <Header />
+            <Header title="Başvurum">
+              <Link to="/basvuru-sorgula" className={styles["mac-link"]}>
+                <h3>Başvuru Oluştur</h3>
+                <i>
+                  <AiOutlinePlusCircle size={30} />
+                </i>
+              </Link>
+            </Header>
           </header>
           <main>
             <article>
