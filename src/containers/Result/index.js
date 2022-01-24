@@ -7,6 +7,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 // import { useSelector } from "react-redux";
 
 import FormContainer from "../../components/FormContainer";
+import TableItem from "../../components/TableItem";
 
 import styles from "./styles.module.css";
 
@@ -50,14 +51,14 @@ function Result() {
               <h3>Başvuru Detayı</h3>
               <div className={styles["rc-detail-items"]}>
                 <table>
-                  <tr>
-                    <td>Başvuru Kodu</td>
-                    <td>{location.state?.code}</td>
-                  </tr>
-                  <tr>
-                    <td>Başvuru Tarihi</td>
-                    <td>
-                      {
+                  <tbody>
+                    <TableItem
+                      label="Başvuru Kodu"
+                      value={location.state?.code}
+                    />
+                    <TableItem
+                      label="Başvuru Tarihi"
+                      value={
                         /* eslint no-unsafe-optional-chaining: "error" */
 
                         `${location.state?.dateRegistration.getDate()}/${
@@ -65,34 +66,26 @@ function Result() {
                         }/${location.state?.dateRegistration.getFullYear()}
                       `
                       }
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Başvuru Yapan Kişi</td>
-                    <td>{`${location.state?.firstName} ${location.state?.lastName}`}</td>
-                  </tr>
-                  <tr>
-                    <td>TC</td>
-                    <td>{location.state?.tc}</td>
-                  </tr>
-                  <tr>
-                    <td>Doğum Tarihi</td>
-                    <td>{location.state?.age}</td>
-                  </tr>
-                  <tr>
-                    <td>Adres</td>
-                    <td>
-                      {`${location.state?.address} ${location.state?.city} ${location.state?.district}`}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Başvuru Sebebi</td>
-                    <td>{location.state?.reason}</td>
-                  </tr>
-                  <tr>
-                    <td>Diğer</td>
-                    <td>{location.state?.other}</td>
-                  </tr>
+                    />
+                    <TableItem
+                      label="Başvuru Yapan Kişi"
+                      value={`${location.state?.firstName} ${location.state?.lastName}`}
+                    />
+                    <TableItem label="TC" value={location.state?.tc} />
+                    <TableItem
+                      label="Doğum Tarihi"
+                      value={location.state?.age}
+                    />
+                    <TableItem
+                      label="Adres"
+                      value={`${location.state?.address} ${location.state?.city} ${location.state?.district}`}
+                    />
+                    <TableItem
+                      label="Başvuru Sebebi"
+                      value={location.state?.reason}
+                    />
+                    <TableItem label="Diğer" value={location.state?.other} />
+                  </tbody>
                 </table>
               </div>
             </div>

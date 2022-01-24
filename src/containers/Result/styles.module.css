@@ -28,9 +28,9 @@
   display: flex;
   flex-direction: column;
 }
-.rc-detail-items > table > tr > td {
+.rc-detail-items > table > tbody > tr > td {
   padding: 10px;
 }
-.rc-detail-items > table > tr:nth-child(even) {
+.rc-detail-items > table > tbody > tr:nth-child(even) {
   background-color: #f2f2f2;
 }
