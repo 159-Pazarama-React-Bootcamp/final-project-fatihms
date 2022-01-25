@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReferralListPage ReferralListPage renders correctly 1`] = `
+<div
+  className="referral-list-container"
+>
+  <header>
+    <div
+      className="header-container"
+    >
+      <h2 />
+    </div>
+  </header>
+  <main>
+    <article>
+      <section
+        className="referral-list"
+      >
+        <table
+          className="table"
+          role="table"
+        >
+          <thead>
+            <tr
+              role="row"
+            >
+              <th
+                colSpan={2}
+                role="columnheader"
+              >
+                Name
+              </th>
+              <th
+                colSpan={4}
+                role="columnheader"
+              >
+                Info
+              </th>
+            </tr>
+            <tr
+              role="row"
+            >
+              <th
+                colSpan={1}
+                role="columnheader"
+              >
+                First Name
+              </th>
+              <th
+                colSpan={1}
+                role="columnheader"
+              >
+                Last Name
+              </th>
+              <th
+                colSpan={1}
+                role="columnheader"
+              >
+                Age
+              </th>
+              <th
+                colSpan={1}
+                role="columnheader"
+              >
+                Status
+              </th>
+              <th
+                colSpan={1}
+                role="columnheader"
+              >
+                Profile Progress
+              </th>
+              <th
+                colSpan={1}
+                role="columnheader"
+              >
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            role="rowgroup"
+          />
+        </table>
+        <div
+          className="pagination"
+        >
+          <button
+            disabled={true}
+            onClick={[Function]}
+          >
+            &lt;&lt;
+          </button>
+          <button
+            disabled={true}
+            onClick={[Function]}
+          >
+            &lt;
+          </button>
+          <button
+            disabled={true}
+            onClick={[Function]}
+          >
+            &gt;
+          </button>
+          <button
+            disabled={true}
+            onClick={[Function]}
+          >
+            &gt;&gt;
+          </button>
+          <span>
+            Page
+             
+            <strong>
+              1
+               of 
+              0
+            </strong>
+          </span>
+          <span>
+            Go to page:
+             
+            <input
+              defaultValue={1}
+              onChange={[Function]}
+              style={
+                Object {
+                  "width": "100px",
+                }
+              }
+              type="number"
+            />
+          </span>
+          <select
+            onChange={[Function]}
+            value={10}
+          >
+            <option
+              value={10}
+            >
+              Show 
+              10
+            </option>
+            <option
+              value={20}
+            >
+              Show 
+              20
+            </option>
+            <option
+              value={30}
+            >
+              Show 
+              30
+            </option>
+            <option
+              value={40}
+            >
+              Show 
+              40
+            </option>
+            <option
+              value={50}
+            >
+              Show 
+              50
+            </option>
+          </select>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+`;

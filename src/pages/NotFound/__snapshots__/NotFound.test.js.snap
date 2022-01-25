@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound NotFound renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "100vh",
+      "justifyContent": "center",
+    }
+  }
+>
+  <h1
+    style={
+      Object {
+        "color": "darkred",
+        "fontSize": "96px",
+      }
+    }
+  >
+    404
+  </h1>
+</div>
+`;
