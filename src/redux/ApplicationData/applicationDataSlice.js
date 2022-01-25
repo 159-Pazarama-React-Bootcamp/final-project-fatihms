@@ -14,6 +14,23 @@ export const fetchApplications = createAsyncThunk(
   }
 );
 
+export const fetchApplication = createAsyncThunk(
+  "applicationData/Application",
+  async (id) => {
+    const response = await axios.get(`${API}/${id}`);
+    return response.data;
+  }
+);
+
+// post application
+export const postApplication = createAsyncThunk(
+  "applicationData/PostApplication",
+  async (application) => {
+    const response = await axios.post(API, application);
+    return response.data;
+  }
+);
+
 export const applicationDataSlice = createSlice({
   name: "applicationData",
   initialState: {

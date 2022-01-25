@@ -3,9 +3,20 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import styles from "./styles.module.css";
+/*eslint-disable */
 
 function InputItem(props) {
-  const { id, name, type, placeholder, onChange, value, labelText } = props;
+  const {
+    id,
+    name,
+    type,
+    placeholder,
+    onChange,
+    value,
+    labelText,
+    error,
+    touched,
+  } = props;
   return (
     <div className={styles["input-container"]}>
       <input
@@ -15,8 +26,11 @@ function InputItem(props) {
         placeholder={placeholder}
         onChange={onChange}
         value={value}
+        style={error && touched ? { border: "2px solid red" } : null}
       />
-      <label htmlFor={id}>{labelText}</label>
+      <label htmlFor={id}>{`${labelText} ${
+        error && touched && error ? "- " + error : ""
+      }`}</label>
     </div>
   );
 }
@@ -31,4 +45,6 @@ InputItem.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
+  error: PropTypes.string.isRequired,
+  touched: PropTypes.bool.isRequired,
 };

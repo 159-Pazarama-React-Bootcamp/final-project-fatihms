@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 
 import { useFormik } from "formik";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import { FileUploader } from "react-drag-drop-files";
 
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-// import { addData } from "../../redux/UserData/userDataSlice";
+import { postApplication } from "../../redux/ApplicationData/applicationDataSlice";
 
 import styles from "./styles.module.css";
 
@@ -17,33 +16,49 @@ import ButtonItem from "../../components/ButtonItem";
 import InputItem from "../../components/InputItem";
 
 import validationSchema from "./validations";
-import API from "../../config/api";
 
 const fileTypes = ["JPG", "PNG", "GIF", "docx"];
 
 function ApplicationForm() {
-  const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const [postImage, setPostImage] = useState("");
 
   const [file, setFile] = useState(null);
-  const handleChange = (pFile) => {
-    setFile(pFile);
-  };
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const randomCode = Math.random().toString(36).substring(3);
 
-  async function postData(applicationData) {
-    try {
-      const result = await axios.post(API, {
-        ...applicationData,
+  /*eslint-disable */
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+  /* eslint-enable */
+
+  const handleChange = async (pFile) => {
+    const base64 = await convertToBase64(pFile);
+    setPostImage(base64);
+    setFile(pFile);
+  };
+
+  const postData = (values) => {
+    dispatch(
+      postApplication({
+        ...values,
         applicationCode: randomCode,
-        other: file.name,
-      });
-      console.log(result.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+        other: postImage,
+      })
+    );
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -57,8 +72,6 @@ function ApplicationForm() {
       district: "",
     },
     onSubmit: (values) => {
-      // dispatch(addData(values));
-      console.log(values);
       postData(values);
       navigate(
         "/basvuru-basarili",
@@ -84,6 +97,8 @@ function ApplicationForm() {
               placeholder="Fatih Mustafa"
               onChange={formik.handleChange}
               value={formik.values.firstName}
+              error={formik.errors.firstName}
+              touched={formik.touched.firstName}
             />
 
             <InputItem
@@ -94,6 +109,8 @@ function ApplicationForm() {
               labelText="Soyad"
               onChange={formik.handleChange}
               value={formik.values.lastName}
+              error={formik.errors.lastName}
+              touched={formik.touched.lastName}
             />
 
             <InputItem
@@ -105,6 +122,8 @@ function ApplicationForm() {
               labelText="Yaş"
               onChange={formik.handleChange}
               value={formik.values.age}
+              error={formik.errors.age}
+              touched={formik.touched.age}
             />
 
             <div className={styles.oneRow}>
@@ -117,6 +136,8 @@ function ApplicationForm() {
                 labelText="TC Kimlik No"
                 onChange={formik.handleChange}
                 value={formik.values.tc}
+                error={formik.errors.tc}
+                touched={formik.touched.tc}
               />
             </div>
 
@@ -131,6 +152,8 @@ function ApplicationForm() {
                 labelText="Adres"
                 onChange={formik.handleChange}
                 value={formik.values.address}
+                error={formik.errors.address}
+                touched={formik.touched.address}
               />
             </div>
 
@@ -142,6 +165,8 @@ function ApplicationForm() {
               labelText="Şehir"
               onChange={formik.handleChange}
               value={formik.values.city}
+              error={formik.errors.city}
+              touched={formik.touched.city}
             />
 
             <InputItem
@@ -152,6 +177,8 @@ function ApplicationForm() {
               labelText="İlçe"
               onChange={formik.handleChange}
               value={formik.values.district}
+              error={formik.errors.district}
+              touched={formik.touched.district}
             />
           </div>
           <span className={styles["form-container-hr"]} />
@@ -166,6 +193,8 @@ function ApplicationForm() {
                 labelText="Başvuru Nedeni"
                 onChange={formik.handleChange}
                 value={formik.values.reason}
+                error={formik.errors.reason}
+                touched={formik.touched.reason}
               />
             </div>
             <div className={styles.oneRow}>
