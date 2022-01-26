@@ -193,7 +193,7 @@ function ApplicationForm() {
                 id="reason"
                 name="reason"
                 type="text"
-                placeholder="Sorun"
+                placeholder="Başvuru nedeni"
                 labelText="Başvuru Nedeni"
                 onChange={formik.handleChange}
                 value={formik.values.reason}
