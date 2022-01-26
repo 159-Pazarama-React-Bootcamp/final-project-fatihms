@@ -18,13 +18,14 @@ exports[`AdminLoginPage AdminLoginPage renders correctly 1`] = `
           name="username"
           onChange={[Function]}
           placeholder="admin"
+          style={null}
           type="text"
           value=""
         />
         <label
           htmlFor="username"
         >
-          Kullanıcı Adı
+          Kullanıcı Adı 
         </label>
       </div>
       <div
@@ -35,13 +36,14 @@ exports[`AdminLoginPage AdminLoginPage renders correctly 1`] = `
           name="password"
           onChange={[Function]}
           placeholder="*********"
+          style={null}
           type="password"
           value=""
         />
         <label
           htmlFor="password"
         >
-          Şifre
+          Şifre 
         </label>
       </div>
       <button

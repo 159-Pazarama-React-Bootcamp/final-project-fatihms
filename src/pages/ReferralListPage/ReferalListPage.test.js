@@ -8,22 +8,29 @@ import { MemoryRouter as Router } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
+import { Provider } from "react-redux";
+import store from "../../redux/store";
+
 import ReferralListPage from "./index";
 
 describe("ReferralListPage", () => {
   beforeEach(() => {
     render(
-      <Router>
-        <ReferralListPage />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <ReferralListPage />
+        </Router>
+      </Provider>
     );
   });
   test("ReferralListPage renders correctly", () => {
     const tree = renderer
       .create(
-        <Router>
-          <ReferralListPage />
-        </Router>
+        <Provider store={store}>
+          <Router>
+            <ReferralListPage />
+          </Router>
+        </Provider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

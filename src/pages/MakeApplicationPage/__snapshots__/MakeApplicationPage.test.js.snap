@@ -70,13 +70,14 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                   name="firstName"
                   onChange={[Function]}
                   placeholder="Fatih Mustafa"
+                  style={null}
                   type="text"
                   value=""
                 />
                 <label
                   htmlFor="firstName"
                 >
-                  Ad
+                  Ad 
                 </label>
               </div>
               <div
@@ -87,13 +88,14 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                   name="lastName"
                   onChange={[Function]}
                   placeholder="Sağır"
+                  style={null}
                   type="text"
                   value=""
                 />
                 <label
                   htmlFor="lastName"
                 >
-                  Soyad
+                  Soyad 
                 </label>
               </div>
               <div
@@ -104,13 +106,14 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                   name="age"
                   onChange={[Function]}
                   placeholder="25"
+                  style={null}
                   type="number"
                   value=""
                 />
                 <label
                   htmlFor="age"
                 >
-                  Yaş
+                  Yaş 
                 </label>
               </div>
               <div
@@ -124,13 +127,14 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                     name="tc"
                     onChange={[Function]}
                     placeholder="25215151515"
+                    style={null}
                     type="text"
                     value=""
                   />
                   <label
                     htmlFor="tc"
                   >
-                    TC Kimlik No
+                    TC Kimlik No 
                   </label>
                 </div>
               </div>
@@ -150,13 +154,14 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                     name="address"
                     onChange={[Function]}
                     placeholder="Yeşil sok. No:1 / 34"
+                    style={null}
                     type="text"
                     value=""
                   />
                   <label
                     htmlFor="address"
                   >
-                    Adres
+                    Adres 
                   </label>
                 </div>
               </div>
@@ -168,13 +173,14 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                   name="city"
                   onChange={[Function]}
                   placeholder="İstanbul"
+                  style={null}
                   type="text"
                   value=""
                 />
                 <label
                   htmlFor="city"
                 >
-                  Şehir
+                  Şehir 
                 </label>
               </div>
               <div
@@ -185,13 +191,14 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                   name="district"
                   onChange={[Function]}
                   placeholder="Beşiktaş"
+                  style={null}
                   type="text"
                   value=""
                 />
                 <label
                   htmlFor="district"
                 >
-                  İlçe
+                  İlçe 
                 </label>
               </div>
             </div>
@@ -217,13 +224,14 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                     name="reason"
                     onChange={[Function]}
                     placeholder="Sorun"
+                    style={null}
                     type="text"
                     value=""
                   />
                   <label
                     htmlFor="reason"
                   >
-                    Başvuru Nedeni
+                    Başvuru Nedeni 
                   </label>
                 </div>
               </div>
@@ -267,13 +275,14 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                       className="sc-hKwDye kCudqJ"
                     >
                       <span>
-                        Upload
+                        Yükleyin
                       </span>
-                       or drop a file right here
+                       
+                      veya sürükleyin
                     </span>
                     <span
                       className="file-types"
-                      title="types: JPG,PNG,GIF,docx"
+                      title="size >= 0.5, types: JPG,PNG,GIF,docx"
                     >
                       JPG,PNG,GIF,docx
                     </span>
@@ -286,7 +295,7 @@ exports[`MakeApplicationPage MakeApplicationPage renders correctly 1`] = `
                     }
                   }
                 >
-                  no files uploaded yet
+                  henüz bir dosya seçilmedi
                 </p>
               </div>
               <button

@@ -8,6 +8,13 @@ import { MemoryRouter as Router } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
+import Enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+
+Enzyme.configure({ adapter: new Adapter() });
+
+import { mount, shallow } from "enzyme";
+
 import HomePage from "./index";
 
 describe("HomePage", () => {
@@ -33,5 +40,15 @@ describe("HomePage", () => {
   });
   test("Başvuru Sorgula button renders correctly", () => {
     expect(screen.getByText("Başvuru Sorgula")).toBeInTheDocument();
+  });
+  test("renders button", () => {
+    const wrapper = shallow(<HomePage />);
+    expect(wrapper.find("button")).toHaveLength(2);
+  });
+  test("react router link goes to correct page", () => {
+    const wrapper = mount(<HomePage />);
+    const button = wrapper.find("button").first();
+    button.simulate("click");
+    expect(wrapper.find("Link").props().to).toBe("/basvuru-olustur");
   });
 });

@@ -2,143 +2,23 @@
 
 exports[`AdminApplicationPage AdminApplicationPage renders correctly 1`] = `
 <div
-  className="application-status-container"
+  className="loading"
 >
-  <header>
-    <div
-      className="header-container"
-    >
-      <h2 />
+  <div
+    className="lds-ring"
+  >
+    <div>
+       
     </div>
-  </header>
-  <main>
-    <article>
-      <section
-        className="admin-application-form"
-      >
-        <div
-          className="form-container form-container--40"
-        >
-          <form
-            onSubmit={[Function]}
-          >
-            <h2>
-              Başvuru Bilgisi
-            </h2>
-            <div
-              className="aaf-table"
-            >
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      Başvuru Kodu
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Başvuru Tarihi
-                    </td>
-                    <td>
-                      ss
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Başvuru Yapan Kişi
-                    </td>
-                    <td>
-                      undefined undefined
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      TC
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Doğum Tarihi
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Adres
-                    </td>
-                    <td>
-                      undefined undefined undefined
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Başvuru Sebebi
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Durum
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Mesaj
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Diğer
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Durum
-                    </td>
-                    <td>
-                      <input
-                        id="status"
-                        name="status"
-                        onChange={[Function]}
-                        placeholder="Durum"
-                        type="text"
-                        value=""
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Mesaj
-                    </td>
-                    <td>
-                      <input
-                        id="message"
-                        name="message"
-                        onChange={[Function]}
-                        placeholder="Mesaj"
-                        type="text"
-                        value=""
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <button
-                className="button-item"
-                type="submit"
-              >
-                Gönder
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-    </article>
-  </main>
+    <div>
+       
+    </div>
+    <div>
+       
+    </div>
+    <div>
+       
+    </div>
+  </div>
 </div>
 `;
