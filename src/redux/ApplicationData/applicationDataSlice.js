@@ -31,6 +31,16 @@ export const postApplication = createAsyncThunk(
   }
 );
 
+// update application
+export const updateApplication = createAsyncThunk(
+  "applicationData/UpdateApplication",
+  async (application) => {
+    console.log(application);
+    const response = await axios.put(`${API}/${application.id}`, application);
+    return response.data;
+  }
+);
+
 export const applicationDataSlice = createSlice({
   name: "applicationData",
   initialState: {

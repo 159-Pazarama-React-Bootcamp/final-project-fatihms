@@ -20,7 +20,7 @@ function ApplicationStatusForm() {
       code: "",
     },
     onSubmit: (values) => {
-      navigate(`/basvuru/${values.code}`, { replace: true });
+      navigate(`/basvuru/${values.code}`);
     },
     validationSchema,
   });
@@ -36,6 +36,8 @@ function ApplicationStatusForm() {
             labelText="Kod"
             onChange={formik.handleChange}
             value={formik.values.code}
+            error={formik.errors.code}
+            touched={formik.touched.code}
           />
           <ButtonItem type="submit">Sorgula</ButtonItem>
         </form>

@@ -2,6 +2,8 @@ import React from "react";
 
 import { useFormik } from "formik";
 
+import { useNavigate } from "react-router-dom";
+
 import FormContainer from "../../components/FormContainer";
 import InputItem from "../../components/InputItem";
 import ButtonItem from "../../components/ButtonItem";
@@ -11,6 +13,8 @@ import validationSchema from "./validations";
 import styles from "./styles.module.css";
 
 function AdminLogin() {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -19,9 +23,8 @@ function AdminLogin() {
     onSubmit: (values) => {
       localStorage.setItem("isAuthenticated", true);
       if (values.username === "admin" && values.password === "admin") {
-        window.location.href = "/admin/basvuru-listesi";
+        navigate("/admin/basvuru-listesi");
       }
-      alert(JSON.stringify(values, null, 2));
     },
     validationSchema,
   });
@@ -37,6 +40,8 @@ function AdminLogin() {
             labelText="Kullanıcı Adı"
             onChange={formik.handleChange}
             value={formik.values.username}
+            error={formik.errors.username}
+            touched={formik.touched.username}
           />
           <InputItem
             id="password"
@@ -46,6 +51,8 @@ function AdminLogin() {
             labelText="Şifre"
             onChange={formik.handleChange}
             value={formik.values.password}
+            error={formik.errors.password}
+            touched={formik.touched.password}
           />
           <ButtonItem type="submit">Giriş Yap</ButtonItem>
         </form>

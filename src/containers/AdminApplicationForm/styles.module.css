@@ -19,3 +19,11 @@
 .aaf-table > table > tbody tr:nth-child(odd) {
   background-color: #f2f2f2;
 }
+
+.aaf-table-message > input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+}

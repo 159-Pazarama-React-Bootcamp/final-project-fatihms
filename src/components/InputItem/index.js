@@ -13,7 +13,7 @@ function InputItem(props) {
     placeholder,
     onChange,
     value,
-    labelText,
+    labelText = "",
     error,
     touched,
   } = props;

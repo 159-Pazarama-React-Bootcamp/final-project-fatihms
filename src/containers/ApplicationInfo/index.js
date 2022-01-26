@@ -34,6 +34,14 @@ function ApplicationInfo({ foundApplication }) {
                 label="Başvuru Sebebi"
                 value={foundApplication?.reason}
               />
+              <TableItem
+                label="Başvuru Durumu"
+                value={foundApplication?.status}
+              />
+              <TableItem
+                label="Yönetici Mesajı"
+                value={foundApplication?.message}
+              />
               <TableItem label="Diğer" value={foundApplication?.other} />
             </tbody>
           </table>

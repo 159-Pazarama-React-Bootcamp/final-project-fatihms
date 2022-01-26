@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
-// import { useSelector } from "react-redux";
 
 import FormContainer from "../../components/FormContainer";
 import TableItem from "../../components/TableItem";
@@ -13,10 +11,8 @@ import styles from "./styles.module.css";
 
 function Result() {
   const [copiedText, setCopiedText] = useState("");
-  // const [userData, setUserData] = useState({});
 
   const location = useLocation();
-  // const userDataState = useSelector((state) => state.userData);
 
   useEffect(() => {
     const { state } = location;
@@ -39,8 +35,11 @@ function Result() {
             <p>
               Mesajın başarılı bir şekilde iletildi. Aşağdaki kodu
               kullanarak,&nbsp;
-              <a href="www.google.com.tr">başvuru sorgulama sayfasından</a>
-              &nbsp; başvurunuzu kontrol edebilirsiniz.
+              <Link to="/basvuru-sorgula" className={styles["afc-link"]}>
+                başvuru sorgulama sayfasından
+              </Link>
+              &nbsp; başvurunuzu kontrol edebilirsiniz. (Kodu kopyalamak için
+              koda bir kez tıklayın.)
             </p>
             <div className={styles["rc-application-code"]}>
               <CopyToClipboard text={copiedText}>

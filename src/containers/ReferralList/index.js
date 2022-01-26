@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 
-import API from "../../config/api";
+import { AiOutlineEdit } from "react-icons/ai";
+
+import { fetchApplications } from "../../redux/ApplicationData/applicationDataSlice";
 
 import styles from "./styles.module.css";
+
+import Loading from "../../components/Loading";
 
 /*eslint-disable */
 
@@ -115,42 +119,60 @@ function Table({ columns, data }) {
 function ReferralList() {
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchApplications());
+  }, [dispatch]);
+
+  const loading = useSelector((state) => state.applicationData.loading);
+  const applications = useSelector(
+    (state) => state.applicationData.applications
+  );
+
   const columns = React.useMemo(() => [
     {
-      Header: "Name",
+      Header: "Kişisel",
       columns: [
         {
-          Header: "First Name",
+          Header: "Adı",
           accessor: "firstName",
         },
         {
-          Header: "Last Name",
+          Header: "Soyadı",
           accessor: "lastName",
         },
       ],
     },
     {
-      Header: "Info",
+      Header: "Bilgi",
       columns: [
         {
-          Header: "Age",
-          accessor: "age",
+          Header: "Sebep",
+          accessor: "reason",
         },
         {
-          Header: "Status",
+          Header: "Durum",
           accessor: "status",
         },
         {
-          Header: "Profile Progress",
-          accessor: "progress",
+          Header: "Kayıt Tarihi",
+          accessor: "dateRegistration",
         },
         {
-          Header: "Action",
+          Header: "Son Düzenleme Tarihi",
+          accessor: "dateApproval",
+        },
+        {
+          Header: "Seçenekler",
           accessor: "action",
           Cell: (row) => (
             <div>
-              <button onClick={(e) => handleEdit(row.row.original)}>
-                Edit
+              <button
+                onClick={(e) => handleEdit(row.row.original)}
+                className={styles.editButton}
+              >
+                <AiOutlineEdit size={24} />
               </button>
             </div>
           ),
@@ -159,28 +181,23 @@ function ReferralList() {
     },
   ]);
 
-  const [data, setData] = useState([]);
-
-  useEffect(async () => {
-    const result = await axios(API);
-    setData(result.data);
-  }, []);
-
-  console.log(data);
-
   const handleEdit = (row) => {
-    navigate(
-      `/admin/basvuru/${row.applicationCode}`,
-      {
-        state: { row },
-      },
-      { replace: true }
-    );
+    navigate(`/admin/basvuru/${row.applicationCode}`, {
+      state: { row },
+    });
   };
+
+  if (loading) {
+    return (
+      <div className={styles.loading}>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <section className={styles["referral-list"]}>
-      <Table columns={columns} data={data} />
+      <Table columns={columns} data={applications} />
     </section>
   );
 }

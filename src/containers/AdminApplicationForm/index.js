@@ -1,34 +1,32 @@
 import React from "react";
 
 import { useFormik } from "formik";
-import axios from "axios";
 
-import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+
+// import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import styles from "./styles.module.css";
 
 import FormContainer from "../../components/FormContainer";
 import ButtonItem from "../../components/ButtonItem";
+import TableItem from "../../components/TableItem";
+import InputItem from "../../components/InputItem";
 
 import validationSchema from "./validations";
-import API from "../../config/api";
 
-function AdminApplicationForm() {
-  const location = useLocation();
-  console.log(location.state);
+import { updateApplication } from "../../redux/ApplicationData/applicationDataSlice";
 
-  async function postData(applicationData) {
-    console.log(applicationData);
-    try {
-      const result = await axios.put(
-        `${API}/${location.state.row.id}`,
-        applicationData
-      );
-      console.log(result.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+function AdminApplicationForm({ foundApplication }) {
+  // const location = useLocation();
+  // const id = location.state.row.id; // eslint-disable-line
+
+  const dispatch = useDispatch();
+
+  const updateData = (values) => {
+    dispatch(updateApplication({ ...values, id: foundApplication.id }));
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -36,11 +34,11 @@ function AdminApplicationForm() {
       message: "",
     },
     onSubmit: (values) => {
-      console.log(values);
-      postData(values);
+      updateData(values);
     },
     validationSchema,
   });
+
   return (
     <section className={styles["admin-application-form"]}>
       <FormContainer width="40">
@@ -49,49 +47,39 @@ function AdminApplicationForm() {
           <div className={styles["aaf-table"]}>
             <table>
               <tbody>
-                <tr>
-                  <td>Başvuru Kodu</td>
-                  <td>{location.state.row.applicationCode}</td>
-                </tr>
-                <tr>
-                  <td>Başvuru Tarihi</td>
-                  <td>ss</td>
-                </tr>
-                <tr>
-                  <td>Başvuru Yapan Kişi</td>
-                  <td>
-                    {`${location.state.row.firstName} ${location.state.row.lastName}`}
-                  </td>
-                </tr>
-                <tr>
-                  <td>TC</td>
-                  <td>{location.state.row.tc}</td>
-                </tr>
-                <tr>
-                  <td>Doğum Tarihi</td>
-                  <td>{location.state.row.age}</td>
-                </tr>
-                <tr>
-                  <td>Adres</td>
-                  <td>
-                    {`${location.state.row.address} ${location.state.row.city} ${location.state.row.district}`}
-                  </td>
-                </tr>
-                <tr>
-                  <td>Başvuru Sebebi</td>
-                  <td>{location.state.row.reason}</td>
-                </tr>
-                <tr>
-                  <td>Durum</td>
-                  <td>{location.state.row.status}</td>
-                </tr>
-                <tr>
-                  <td>Mesaj</td>
-                  <td>{location.state.row.message}</td>
-                </tr>
+                <TableItem
+                  label="Başvuru Kodu"
+                  value={foundApplication?.applicationCode}
+                />
+                <TableItem
+                  label="Başvuru Tarihi"
+                  value={foundApplication?.dateRegistration}
+                />
+                <TableItem
+                  label="Başvuru Yapan Kişi"
+                  value={`${foundApplication?.firstName} ${foundApplication?.lastName}`}
+                />
+                <TableItem label="TC" value={foundApplication?.tc} />
+                <TableItem label="Yaş" value={foundApplication?.age} />
+                <TableItem
+                  label="Adres"
+                  value={`${foundApplication?.address} ${foundApplication?.city} ${foundApplication?.district}`}
+                />
+                <TableItem
+                  label="Başvuru Sebebi"
+                  value={foundApplication?.reason}
+                />
+                <TableItem
+                  label="Başvuru Durumu"
+                  value={foundApplication?.status}
+                />
+                <TableItem
+                  label="Başvuru Mesajı"
+                  value={foundApplication?.message}
+                />
                 <tr>
                   <td>Diğer</td>
-                  <td>{location.state.row.other}</td>
+                  <td>{foundApplication?.other}</td>
                 </tr>
                 <tr>
                   <td>Durum</td>
@@ -103,19 +91,23 @@ function AdminApplicationForm() {
                       placeholder="Durum"
                       onChange={formik.handleChange}
                       value={formik.values.status}
+                      error={formik.errors.status}
+                      touched={formik.touched.status}
                     />
                   </td>
                 </tr>
                 <tr>
                   <td>Mesaj</td>
-                  <td>
-                    <input
+                  <td className={styles["aaf-table-message"]}>
+                    <InputItem
                       id="message"
                       name="message"
                       type="text"
                       placeholder="Mesaj"
                       onChange={formik.handleChange}
                       value={formik.values.message}
+                      error={formik.errors.message}
+                      touched={formik.touched.message}
                     />
                   </td>
                 </tr>
@@ -130,3 +122,9 @@ function AdminApplicationForm() {
 }
 
 export default AdminApplicationForm;
+
+/*eslint-disable */
+
+AdminApplicationForm.propTypes = {
+  foundApplication: PropTypes.object,
+};
