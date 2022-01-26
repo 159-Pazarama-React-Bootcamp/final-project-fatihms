@@ -9,7 +9,7 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
 import Enzyme from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -45,10 +45,25 @@ describe("HomePage", () => {
     const wrapper = shallow(<HomePage />);
     expect(wrapper.find("button")).toHaveLength(2);
   });
-  test("react router link goes to correct page", () => {
-    const wrapper = mount(<HomePage />);
-    const button = wrapper.find("button").first();
-    button.simulate("click");
-    expect(wrapper.find("Link").props().to).toBe("/basvuru-olustur");
+
+  test("react router link goes to basvuru olustur page when clicked", () => {
+    const wrapper = mount(
+      <Router>
+        <HomePage />
+      </Router>
+    );
+    const link = wrapper.find("Link").at(0);
+    link.simulate("click");
+    expect(link.props().to).toBe("/basvuru-olustur");
+  });
+  test("react router link goes to basvuru sorgula page when clicked", () => {
+    const wrapper = mount(
+      <Router>
+        <HomePage />
+      </Router>
+    );
+    const link = wrapper.find("Link").at(1);
+    link.simulate("click");
+    expect(link.props().to).toBe("/basvuru-sorgula");
   });
 });
