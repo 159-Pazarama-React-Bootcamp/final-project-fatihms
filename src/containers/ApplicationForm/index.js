@@ -56,6 +56,9 @@ function ApplicationForm() {
         ...values,
         applicationCode: randomCode,
         other: postImage,
+        status: "Bekliyor",
+        message: "",
+        fileName: file.name,
       })
     );
   };
@@ -74,7 +77,12 @@ function ApplicationForm() {
     onSubmit: (values) => {
       postData(values);
       navigate("/basvuru-basarili", {
-        state: { ...values, dateRegistration: new Date(), code: randomCode },
+        state: {
+          ...values,
+          dateRegistration: new Date(),
+          code: randomCode,
+          fileName: file.name,
+        },
       });
     },
     validationSchema,
@@ -198,9 +206,11 @@ function ApplicationForm() {
                 handleChange={handleChange}
                 name="file"
                 types={fileTypes}
+                label="Yükleyin veya sürükleyin"
+                maxSize={0.5}
               />
               <p style={{ marginTop: "10px" }}>
-                {file ? `File name: ${file.name}` : "no files uploaded yet"}
+                {file ? `Dosya adı: ${file.name}` : "henüz bir dosya seçilmedi"}
               </p>
             </div>
             <ButtonItem type="submit">Gönder</ButtonItem>

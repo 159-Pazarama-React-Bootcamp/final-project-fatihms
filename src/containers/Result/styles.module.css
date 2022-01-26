@@ -34,3 +34,7 @@
 .rc-detail-items > table > tbody > tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
+.rc-detail-items > table > tbody > tr > td:nth-child(1) {
+  font-weight: 500;
+}

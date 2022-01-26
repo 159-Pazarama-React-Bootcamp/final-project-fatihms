@@ -19,13 +19,16 @@ function ApplicationInfo({ foundApplication }) {
                 label="Başvuru Kodu"
                 value={foundApplication.applicationCode}
               />
-              <TableItem label="Başvuru Tarihi" value="tarih" />
+              <TableItem
+                label="Başvuru Tarihi"
+                value={foundApplication?.dateRegistration.split("T")[0]}
+              />
               <TableItem
                 label="Başvuru Yapan Kişi"
                 value={`${foundApplication?.firstName} ${foundApplication?.lastName}`}
               />
-              <TableItem label="TC" value={foundApplication?.tc} />
-              <TableItem label="Doğum Tarihi" value={foundApplication?.age} />
+              <TableItem label="T.C. Kimlik No" value={foundApplication?.tc} />
+              <TableItem label="Yaş" value={foundApplication?.age} />
               <TableItem
                 label="Adres"
                 value={`${foundApplication?.address} ${foundApplication?.city} ${foundApplication?.district}`}
@@ -42,7 +45,7 @@ function ApplicationInfo({ foundApplication }) {
                 label="Yönetici Mesajı"
                 value={foundApplication?.message}
               />
-              <TableItem label="Diğer" value={foundApplication?.other} />
+              <TableItem label="Diğer" value={foundApplication?.fileName} />
             </tbody>
           </table>
         </div>

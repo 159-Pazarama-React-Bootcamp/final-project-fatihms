@@ -6,13 +6,13 @@ import PropTypes from "prop-types";
 
 // import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
+// import { useNavigate } from "react-router-dom";
 
 import styles from "./styles.module.css";
 
 import FormContainer from "../../components/FormContainer";
 import ButtonItem from "../../components/ButtonItem";
 import TableItem from "../../components/TableItem";
-import InputItem from "../../components/InputItem";
 
 import validationSchema from "./validations";
 
@@ -23,9 +23,16 @@ function AdminApplicationForm({ foundApplication }) {
   // const id = location.state.row.id; // eslint-disable-line
 
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   const updateData = (values) => {
-    dispatch(updateApplication({ ...values, id: foundApplication.id }));
+    dispatch(
+      updateApplication({
+        ...values,
+        id: foundApplication.id,
+        dateApproval: new Date(),
+      })
+    );
   };
 
   const formik = useFormik({
@@ -35,6 +42,7 @@ function AdminApplicationForm({ foundApplication }) {
     },
     onSubmit: (values) => {
       updateData(values);
+      window.alert("Güncelleme Başarılı");
     },
     validationSchema,
   });
@@ -59,7 +67,10 @@ function AdminApplicationForm({ foundApplication }) {
                   label="Başvuru Yapan Kişi"
                   value={`${foundApplication?.firstName} ${foundApplication?.lastName}`}
                 />
-                <TableItem label="TC" value={foundApplication?.tc} />
+                <TableItem
+                  label="T.C. Kimlik No"
+                  value={foundApplication?.tc}
+                />
                 <TableItem label="Yaş" value={foundApplication?.age} />
                 <TableItem
                   label="Adres"
@@ -79,36 +90,41 @@ function AdminApplicationForm({ foundApplication }) {
                 />
                 <tr>
                   <td>Diğer</td>
-                  <td>{foundApplication?.other}</td>
+                  <td>{foundApplication?.fileName}</td>
                 </tr>
                 <tr>
                   <td>Durum</td>
-                  <td>
-                    <input
-                      id="status"
-                      name="status"
-                      type="text"
-                      placeholder="Durum"
-                      onChange={formik.handleChange}
-                      value={formik.values.status}
-                      error={formik.errors.status}
-                      touched={formik.touched.status}
-                    />
+                  <td className={styles["aaf-status"]}>
+                    <select name="status" onChange={formik.handleChange}>
+                      <option value="">Seçiniz</option>
+                      <option value="Çözüldü">Çözüldü</option>
+                      <option value="İptal Edildi">İptal Edildi</option>
+                      <option value="Bekliyor">Bekliyor</option>
+                    </select>
+                    {formik.errors.status && formik.touched.status ? (
+                      <div className={styles["aaf-error"]}>
+                        {formik.errors.status}
+                      </div>
+                    ) : null}
                   </td>
                 </tr>
                 <tr>
                   <td>Mesaj</td>
                   <td className={styles["aaf-table-message"]}>
-                    <InputItem
+                    <input
                       id="message"
                       name="message"
                       type="text"
                       placeholder="Mesaj"
                       onChange={formik.handleChange}
                       value={formik.values.message}
-                      error={formik.errors.message}
-                      touched={formik.touched.message}
                     />
+
+                    {formik.errors.message && formik.touched.message ? (
+                      <div className={styles["aaf-error"]}>
+                        {formik.errors.message}
+                      </div>
+                    ) : null}
                   </td>
                 </tr>
               </tbody>

@@ -8,11 +8,10 @@
   height: 40px;
   margin-top: 10px;
   width: 100%;
-  grid-column: auto / span 2;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
 .button-item:hover {
-  background-color: #273f47;
+  background-color: #2f4247;
 }

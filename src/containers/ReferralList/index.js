@@ -14,9 +14,25 @@ import Loading from "../../components/Loading";
 
 /*eslint-disable */
 
-import { useTable, usePagination } from "react-table";
+import {
+  useTable,
+  useFilters,
+  useGlobalFilter,
+  usePagination,
+  useAsyncDebounce,
+} from "react-table";
+
+function DefaultColumnFilter() {
+  return "";
+}
 
 function Table({ columns, data }) {
+  const defaultColumn = React.useMemo(
+    () => ({
+      Filter: DefaultColumnFilter,
+    }),
+    []
+  );
   const {
     getTableProps,
     getTableBodyProps,
@@ -37,7 +53,10 @@ function Table({ columns, data }) {
       columns,
       data,
       initialState: { pageIndex: 0 },
+      defaultColumn, // Be sure to pass the defaultColumn option
     },
+    useFilters, // useFilters!
+    useGlobalFilter,
     usePagination
   );
 
@@ -48,7 +67,10 @@ function Table({ columns, data }) {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps()}>
+                  {column.render("Header")}
+                  <div>{column.canFilter ? column.render("Filter") : null}</div>
+                </th>
               ))}
             </tr>
           ))}
@@ -116,6 +138,38 @@ function Table({ columns, data }) {
   );
 }
 
+function SelectColumnFilter({
+  column: { filterValue, setFilter, preFilteredRows, id },
+}) {
+  console.log("here");
+  // Calculate the options for filtering
+  // using the preFilteredRows
+  const options = React.useMemo(() => {
+    const options = new Set();
+    preFilteredRows.forEach((row) => {
+      options.add(row.values[id]);
+    });
+    return [...options.values()];
+  }, [id, preFilteredRows]);
+
+  // Render a multi-select box
+  return (
+    <select
+      value={filterValue}
+      onChange={(e) => {
+        setFilter(e.target.value || undefined);
+      }}
+    >
+      <option value="">All</option>
+      {options.map((option, i) => (
+        <option key={i} value={option}>
+          {option}
+        </option>
+      ))}
+    </select>
+  );
+}
+
 function ReferralList() {
   const navigate = useNavigate();
 
@@ -154,6 +208,8 @@ function ReferralList() {
         {
           Header: "Durum",
           accessor: "status",
+          Filter: SelectColumnFilter,
+          filter: "includes",
         },
         {
           Header: "Kayıt Tarihi",

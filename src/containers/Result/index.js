@@ -83,7 +83,7 @@ function Result() {
                       label="Başvuru Sebebi"
                       value={location.state?.reason}
                     />
-                    <TableItem label="Diğer" value={location.state?.other} />
+                    <TableItem label="Diğer" value={location.state?.fileName} />
                   </tbody>
                 </table>
               </div>
