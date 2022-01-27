@@ -21,11 +21,16 @@ function AdminLogin() {
       password: "",
     },
     onSubmit: (values) => {
+      /*eslint-disable */
       localStorage.setItem("isAuthenticated", true);
-      if (values.username === "admin" && values.password === "admin") {
+      if (
+        values.username === "kodluyoruz" &&
+        values.password === "bootcamp109"
+      ) {
         navigate("/admin/basvuru-listesi");
       }
     },
+    /* eslint-enable */
     validationSchema,
   });
   return (

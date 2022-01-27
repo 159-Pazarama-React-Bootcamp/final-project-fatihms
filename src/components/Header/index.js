@@ -19,7 +19,7 @@ export default Header;
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 Header.defaultProps = {
