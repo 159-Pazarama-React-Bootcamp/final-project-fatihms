@@ -31,7 +31,6 @@ export const postApplication = createAsyncThunk(
     //   `${API}/${response.data.id}/other`,
     //   application[1]
     // );
-
     return response.data;
   }
 );

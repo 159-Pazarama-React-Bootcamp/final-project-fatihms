@@ -16,6 +16,10 @@ Enzyme.configure({ adapter: new Adapter() });
 import { mount, shallow } from "enzyme";
 
 import ApplicationStatusPage from "./index";
+import ButtonItem from "../../components/ButtonItem";
+import ApplicationStatusForm from "../../containers/ApplicationStatusForm";
+import Header from "../../components/Header";
+import InputItem from "../../components/InputItem";
 
 describe("ApplicationStatusPage", () => {
   beforeEach(() => {
@@ -62,17 +66,5 @@ describe("ApplicationStatusPage", () => {
     );
     const input = wrapper.find("input");
     expect(input.prop("value")).toBe("");
-  });
-  test("when you click the button it goes to the value in the input", () => {
-    const wrapper = mount(
-      <Router>
-        <ApplicationStatusPage />
-      </Router>
-    );
-    const input = wrapper.find("input");
-    input.simulate("change", { target: { value: "123456789" } });
-    const button = wrapper.find("button");
-    button.simulate("click");
-    expect(button.prop("to")).toBe("/basvuru/123456789");
   });
 });

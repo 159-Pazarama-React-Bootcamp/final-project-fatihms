@@ -13,7 +13,9 @@ import { postApplication } from "../../redux/ApplicationData/applicationDataSlic
 
 import styles from "./styles.module.css";
 
-import Base64Context from "../../context/Base64";
+// import Base64Context from "../../context/Base64";
+
+// import base64Splice from "../../utils/base64Splice";
 
 import FormContainer from "../../components/FormContainer";
 import ButtonItem from "../../components/ButtonItem";

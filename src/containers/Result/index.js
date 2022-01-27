@@ -70,7 +70,10 @@ function Result() {
                       label="Başvuru Yapan Kişi"
                       value={`${location.state?.firstName} ${location.state?.lastName}`}
                     />
-                    <TableItem label="TC" value={location.state?.tc} />
+                    <TableItem
+                      label="T.C. Kimlik No"
+                      value={location.state?.tc}
+                    />
                     <TableItem
                       label="Doğum Tarihi"
                       value={location.state?.age}

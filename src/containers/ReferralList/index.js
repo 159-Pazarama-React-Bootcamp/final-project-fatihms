@@ -259,6 +259,9 @@ function ReferralList() {
     var answer = window.confirm("Silmek istediğinize emin misiniz?");
     if (answer) {
       dispatch(deleteApplication(row.id));
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 500);
     }
   };
 
