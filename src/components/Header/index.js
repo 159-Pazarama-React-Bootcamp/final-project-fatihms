@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import React from "react";
 
 import PropTypes from "prop-types";
@@ -18,4 +20,9 @@ export default Header;
 Header.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
+};
+
+Header.defaultProps = {
+  title: "",
+  children: "",
 };

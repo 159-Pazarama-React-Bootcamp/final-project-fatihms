@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 // import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./styles.module.css";
 
@@ -23,7 +23,7 @@ function AdminApplicationForm({ foundApplication }) {
   // const id = location.state.row.id; // eslint-disable-line
 
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const updateData = (values) => {
     dispatch(
@@ -43,6 +43,7 @@ function AdminApplicationForm({ foundApplication }) {
     onSubmit: (values) => {
       updateData(values);
       window.alert("Güncelleme Başarılı");
+      navigate("/admin/basvuru-listesi");
     },
     validationSchema,
   });
@@ -90,7 +91,14 @@ function AdminApplicationForm({ foundApplication }) {
                 />
                 <tr>
                   <td>Diğer</td>
-                  <td>{foundApplication?.fileName}</td>
+                  <td>
+                    <img
+                      alt="resim"
+                      /* eslint-disable */
+                      src={foundApplication?.other}
+                      /* eslint-enable */
+                    />
+                  </td>
                 </tr>
                 <tr>
                   <td>Durum</td>

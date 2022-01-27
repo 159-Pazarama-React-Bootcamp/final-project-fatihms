@@ -144,7 +144,6 @@ function Table({ columns, data }) {
 function SelectColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id },
 }) {
-  console.log("here");
   // Calculate the options for filtering
   // using the preFilteredRows
   const options = React.useMemo(() => {
@@ -205,6 +204,10 @@ function ReferralList() {
       Header: "Bilgi",
       columns: [
         {
+          Header: "Kod",
+          accessor: "applicationCode",
+        },
+        {
           Header: "Sebep",
           accessor: "reason",
         },
@@ -253,8 +256,10 @@ function ReferralList() {
   };
 
   const handleDelete = (row) => {
-    console.log(row.id);
-    dispatch(deleteApplication(row.id));
+    var answer = window.confirm("Silmek istediğinize emin misiniz?");
+    if (answer) {
+      dispatch(deleteApplication(row.id));
+    }
   };
 
   if (loading) {

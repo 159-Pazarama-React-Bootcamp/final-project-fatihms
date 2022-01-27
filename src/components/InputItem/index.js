@@ -43,8 +43,13 @@ InputItem.propTypes = {
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   labelText: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
-  touched: PropTypes.bool.isRequired,
+  touched: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+};
+
+InputItem.defaultProps = {
+  error: "",
+  touched: "",
 };

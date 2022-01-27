@@ -27,6 +27,11 @@ export const postApplication = createAsyncThunk(
   "applicationData/PostApplication",
   async (application) => {
     const response = await axios.post(API, application);
+    // const postImage = await axios.post(
+    //   `${API}/${response.data.id}/other`,
+    //   application[1]
+    // );
+
     return response.data;
   }
 );

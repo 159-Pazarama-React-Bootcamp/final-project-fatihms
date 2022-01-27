@@ -15,27 +15,37 @@ import ReferralListPage from "./pages/ReferralListPage";
 import AdminApplicationPage from "./pages/AdminApplicationPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+import { Base64Provider } from "./context/Base64";
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={<NotFound />} />
-        <Route path="notfound" element={<NotFound />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="basvuru-olustur" element={<MakeApplicationPage />} />
-        <Route
-          path="basvuru-basarili"
-          element={<ApplicationSuccessfulPage />}
-        />
-        <Route path="basvuru-sorgula" element={<ApplicationStatusPage />} />
-        <Route path="basvuru/:id" element={<UserApplicationPage />} />
-        <Route path="admin" element={<AdminLoginPage />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="admin/basvuru-listesi" element={<ReferralListPage />} />
-          <Route path="admin/basvuru/:id" element={<AdminApplicationPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Base64Provider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="notfound" element={<NotFound />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="basvuru-olustur" element={<MakeApplicationPage />} />
+          <Route
+            path="basvuru-basarili"
+            element={<ApplicationSuccessfulPage />}
+          />
+          <Route path="basvuru-sorgula" element={<ApplicationStatusPage />} />
+          <Route path="basvuru/:id" element={<UserApplicationPage />} />
+          <Route path="admin" element={<AdminLoginPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route
+              path="admin/basvuru-listesi"
+              element={<ReferralListPage />}
+            />
+            <Route
+              path="admin/basvuru/:id"
+              element={<AdminApplicationPage />}
+            />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Base64Provider>
   );
 }
 

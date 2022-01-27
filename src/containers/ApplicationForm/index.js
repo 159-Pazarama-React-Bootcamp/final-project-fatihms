@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+/*eslint-disable */
+
+import React, { useState, useContext, useEffect } from "react";
 
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -11,9 +13,13 @@ import { postApplication } from "../../redux/ApplicationData/applicationDataSlic
 
 import styles from "./styles.module.css";
 
+import Base64Context from "../../context/Base64";
+
 import FormContainer from "../../components/FormContainer";
 import ButtonItem from "../../components/ButtonItem";
 import InputItem from "../../components/InputItem";
+
+import notfoundfile from "../../assets/notfoundfile.png";
 
 import validationSchema from "./validations";
 
@@ -27,9 +33,10 @@ function ApplicationForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // const { postBase64, fetchBase64 } = useContext(Base64Context);
+
   const randomCode = Math.random().toString(36).substring(3);
 
-  /*eslint-disable */
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -42,11 +49,11 @@ function ApplicationForm() {
       };
     });
   };
-  /* eslint-enable */
 
   const handleChange = async (pFile) => {
     const base64 = await convertToBase64(pFile);
-    setPostImage(base64);
+    console.log(base64.length, notfoundfile.length);
+    base64.length < 15000 ? setPostImage(base64) : setPostImage(notfoundfile);
     setFile(pFile);
   };
 
@@ -58,7 +65,7 @@ function ApplicationForm() {
         other: postImage,
         status: "Bekliyor",
         message: "",
-        fileName: file.name,
+        fileName: file?.name ? file.name : "",
         dateApproval: "",
         dateRegistration: new Date(),
       })
@@ -83,7 +90,7 @@ function ApplicationForm() {
           ...values,
           dateRegistration: new Date(),
           code: randomCode,
-          fileName: file.name,
+          fileName: file?.name ? file.name : "",
         },
       });
     },
@@ -212,7 +219,9 @@ function ApplicationForm() {
                 maxSize={0.5}
               />
               <p style={{ marginTop: "10px" }}>
-                {file ? `Dosya adı: ${file.name}` : "henüz bir dosya seçilmedi"}
+                {file
+                  ? `Dosya adı: ${file?.name}`
+                  : "henüz bir dosya seçilmedi"}
               </p>
             </div>
             <ButtonItem type="submit">Gönder</ButtonItem>
