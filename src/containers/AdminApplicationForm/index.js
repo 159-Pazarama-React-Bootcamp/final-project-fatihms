@@ -93,10 +93,11 @@ function AdminApplicationForm({ foundApplication }) {
                   <td>Diğer</td>
                   <td>
                     <img
-                      alt="resim"
+                      alt="other"
                       /* eslint-disable */
                       src={foundApplication?.other}
                       /* eslint-enable */
+                      height={100}
                     />
                   </td>
                 </tr>
