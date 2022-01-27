@@ -59,6 +59,8 @@ function ApplicationForm() {
         status: "Bekliyor",
         message: "",
         fileName: file.name,
+        dateApproval: "",
+        dateRegistration: new Date(),
       })
     );
   };

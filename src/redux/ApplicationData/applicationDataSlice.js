@@ -41,6 +41,15 @@ export const updateApplication = createAsyncThunk(
   }
 );
 
+// delete application
+export const deleteApplication = createAsyncThunk(
+  "applicationData/DeleteApplication",
+  async (id) => {
+    const response = await axios.delete(`${API}/${id}`);
+    return response.data;
+  }
+);
+
 export const applicationDataSlice = createSlice({
   name: "applicationData",
   initialState: {

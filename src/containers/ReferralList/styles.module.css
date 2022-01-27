@@ -88,7 +88,13 @@
   background-color: #fff;
 }
 
-.editButton {
+.action {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton,
+.deleteButton {
   padding: 6px 12px;
   text-decoration: none;
   border: 1px solid #ddd;
@@ -97,7 +103,8 @@
   cursor: pointer;
 }
 
-.editButton:hover {
+.editButton:hover,
+.deleteButton:hover {
   background-color: #4a647c;
   color: white;
 }

@@ -10,11 +10,15 @@ import ReferralList from "../../containers/ReferralList";
 import styles from "./styles.module.css";
 
 function ReferralListPage() {
+  const exitPage = () => {
+    localStorage.removeItem("isAuthenticated");
+  };
+
   return (
     <div className={styles["referral-list-container"]}>
       <header>
         <Header title="Başvuru Listesi">
-          <Link to="/admin" className={styles["mac-link"]}>
+          <Link to="/admin" className={styles["mac-link"]} onClick={exitPage}>
             <i>
               <BiExit size={30} color="white" />
             </i>

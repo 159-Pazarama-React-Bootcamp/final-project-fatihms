@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 
-import { fetchApplications } from "../../redux/ApplicationData/applicationDataSlice";
+import {
+  fetchApplications,
+  deleteApplication,
+} from "../../redux/ApplicationData/applicationDataSlice";
 
 import styles from "./styles.module.css";
 
@@ -223,12 +226,18 @@ function ReferralList() {
           Header: "Seçenekler",
           accessor: "action",
           Cell: (row) => (
-            <div>
+            <div className={styles.action}>
               <button
                 onClick={(e) => handleEdit(row.row.original)}
                 className={styles.editButton}
               >
                 <AiOutlineEdit size={24} />
+              </button>
+              <button
+                onClick={(e) => handleDelete(row.row.original)}
+                className={styles.deleteButton}
+              >
+                <AiOutlineDelete size={24} />
               </button>
             </div>
           ),
@@ -241,6 +250,11 @@ function ReferralList() {
     navigate(`/admin/basvuru/${row.applicationCode}`, {
       state: { row },
     });
+  };
+
+  const handleDelete = (row) => {
+    console.log(row.id);
+    dispatch(deleteApplication(row.id));
   };
 
   if (loading) {
