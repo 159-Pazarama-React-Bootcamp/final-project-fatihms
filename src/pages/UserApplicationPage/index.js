@@ -46,7 +46,7 @@ function UserApplicationPage() {
         <div className={styles["user-application-page"]}>
           <header>
             <Header title="Başvurum">
-              <Link to="/basvuru-sorgula" className={styles["mac-link"]}>
+              <Link to="/basvuru-olustur" className={styles["mac-link"]}>
                 <h3>Başvuru Oluştur</h3>
                 <i>
                   <AiOutlinePlusCircle size={30} />
