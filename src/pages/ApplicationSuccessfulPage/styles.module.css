@@ -1,0 +1,14 @@
+.afc-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f05454;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.afc-link > i {
+  margin-left: 10px;
+}

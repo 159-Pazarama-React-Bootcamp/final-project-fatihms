@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReferralListPage ReferralListPage renders correctly 1`] = `
+<div
+  className="referral-list-container"
+>
+  <header>
+    <div
+      className="header-container"
+    >
+      <h2>
+        Başvuru Listesi
+      </h2>
+      <a
+        className="mac-link"
+        href="/admin"
+        onClick={[Function]}
+      >
+        <i>
+          <svg
+            color="white"
+            fill="currentColor"
+            height={30}
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": "white",
+              }
+            }
+            viewBox="0 0 24 24"
+            width={30}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.002 3h-14c-1.103 0-2 .897-2 2v4h2V5h14v14h-14v-4h-2v4c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.898-2-2-2z"
+            />
+            <path
+              d="m11 16 5-4-5-4v3.001H3v2h8z"
+            />
+          </svg>
+        </i>
+      </a>
+    </div>
+  </header>
+  <main>
+    <article>
+      <div
+        className="loading"
+      >
+        <div
+          className="lds-ring"
+        >
+          <div>
+             
+          </div>
+          <div>
+             
+          </div>
+          <div>
+             
+          </div>
+          <div>
+             
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+</div>
+`;

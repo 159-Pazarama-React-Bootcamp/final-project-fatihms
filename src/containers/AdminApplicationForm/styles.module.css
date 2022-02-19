@@ -1,0 +1,50 @@
+.admin-application-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aaf-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.aaf-table > table > tbody > tr > td {
+  padding: 10px;
+}
+.aaf-table > table > tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.aaf-table > table > tbody > tr > td:nth-child(1) {
+  font-weight: 500;
+}
+
+.aaf-table-message > input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.aaf-status > select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.aaf-status > select > option {
+  padding: 10px;
+}
+
+.aaf-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
+}

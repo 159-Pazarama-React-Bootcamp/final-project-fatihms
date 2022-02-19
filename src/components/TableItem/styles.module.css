@@ -1,0 +1,10 @@
+.table-item > td:nth-child(1) {
+  font-weight: 500;
+}
+
+.table-item > td {
+  padding: 10px;
+}
+.table-item:nth-child(odd) {
+  background-color: #f2f2f2;
+}

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminLoginPage AdminLoginPage renders correctly 1`] = `
+<section
+  className="admin-page"
+>
+  <div
+    className="form-container form-container--20"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="input-container"
+      >
+        <input
+          id="username"
+          name="username"
+          onChange={[Function]}
+          placeholder="admin"
+          style={null}
+          type="text"
+          value=""
+        />
+        <label
+          htmlFor="username"
+        >
+          Kullanıcı Adı 
+        </label>
+      </div>
+      <div
+        className="input-container"
+      >
+        <input
+          id="password"
+          name="password"
+          onChange={[Function]}
+          placeholder="*********"
+          style={null}
+          type="password"
+          value=""
+        />
+        <label
+          htmlFor="password"
+        >
+          Şifre 
+        </label>
+      </div>
+      <button
+        className="button-item"
+        type="submit"
+      >
+        Giriş Yap
+      </button>
+    </form>
+  </div>
+</section>
+`;

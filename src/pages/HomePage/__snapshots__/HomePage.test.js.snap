@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage HomePage renders correctly 1`] = `
+<div
+  className="homepage"
+>
+  <main>
+    <a
+      className="make-application-link"
+      href="/basvuru-olustur"
+      onClick={[Function]}
+    >
+      <button
+        type="button"
+      >
+        Başvuru Oluştur
+      </button>
+    </a>
+    <a
+      className="application-status-link"
+      href="/basvuru-sorgula"
+      onClick={[Function]}
+    >
+      <button
+        type="button"
+      >
+        Başvuru Sorgula
+      </button>
+    </a>
+  </main>
+</div>
+`;

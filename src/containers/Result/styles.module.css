@@ -1,0 +1,40 @@
+.result {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px;
+}
+
+.result-container {
+  gap: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rc-application-code {
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+}
+
+.rc-detail {
+  width: 100%;
+}
+
+.rc-detail-items {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.rc-detail-items > table > tbody > tr > td {
+  padding: 10px;
+}
+.rc-detail-items > table > tbody > tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.rc-detail-items > table > tbody > tr > td:nth-child(1) {
+  font-weight: 500;
+}
